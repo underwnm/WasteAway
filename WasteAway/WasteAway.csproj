@@ -177,10 +177,19 @@
     <Compile Include="Migrations\201611272319359_AddInitialModel.Designer.cs">
       <DependentUpon>201611272319359_AddInitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611272336099_CreateAddressTable.cs" />
+    <Compile Include="Migrations\201611272336099_CreateAddressTable.Designer.cs">
+      <DependentUpon>201611272336099_CreateAddressTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\City.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Zipcode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -254,6 +263,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611272319359_AddInitialModel.resx">
       <DependentUpon>201611272319359_AddInitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611272336099_CreateAddressTable.resx">
+      <DependentUpon>201611272336099_CreateAddressTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
