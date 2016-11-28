@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 using WasteAway.Models;
 using WasteAway.ViewModels;
 
@@ -16,15 +15,18 @@ namespace WasteAway.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _context;
 
         public ManageController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _context = new ApplicationDbContext();
         }
 
         public ApplicationSignInManager SignInManager
@@ -243,6 +245,64 @@ namespace WasteAway.Controllers
             }
             AddErrors(result);
             return View(model);
+        }
+
+        public ActionResult ChangeAddress()
+        {
+            var viewModel = new ChangeAddressViewModel
+            {
+                States = _context.States.ToList(),
+            };
+
+            return View(viewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeAddress(ChangeAddressViewModel viewModel)
+        {
+            var userId = User.Identity.GetUserId();
+
+            if (!ModelState.IsValid)
+            {
+                viewModel.States = _context.States.ToList();
+                return View("ChangeAddress", viewModel);
+            }
+
+            var city = new City
+            {
+                StateId = viewModel.StateId,
+                Name = viewModel.City
+            };
+            _context.Cities.Add(city);
+            _context.SaveChanges();
+
+            var zipcode = new Zipcode
+            {
+                Name = viewModel.ZipcodeId,
+            };
+            _context.Zipcodes.Add(zipcode);
+            _context.SaveChanges();
+
+            var address = new Address
+            {
+                StreetAddressOne = viewModel.StreetAddressOne,
+                StreetAddressTwo = viewModel.StreetAddressTwo,
+                CityId = city.Id,
+                ZipcodeId = zipcode.Id
+            };
+            _context.Addresses.Add(address);
+            _context.SaveChanges();
+
+            var query = (from a in _context.Users
+                         where a.Id == userId
+                         select new { a }).Single();
+            var user = query.a;
+            user.PickupAddressId = address.Id;
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Manage");
         }
 
         //

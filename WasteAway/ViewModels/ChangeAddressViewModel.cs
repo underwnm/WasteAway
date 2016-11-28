@@ -4,7 +4,7 @@ using WasteAway.Models;
 
 namespace WasteAway.ViewModels
 {
-    public class AddressFormViewModel
+    public class ChangeAddressViewModel
     {
         [Required]
         [Display(Name = "Street Address Line*")]
@@ -25,10 +25,5 @@ namespace WasteAway.ViewModels
         [Required]
         [Display(Name = "Zipcode*")]
         public string ZipcodeId { get; set; }
-
-        [Required]
-        [Display(Name = "Weekly Pickup Day*")]
-        public int WeekdayId { get; set; }
-        public IEnumerable<Weekday> Weekdays { get; set; }
     }
 }

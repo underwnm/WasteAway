@@ -1,0 +1,40 @@
+﻿@model WasteAway.ViewModels.ChangeAddressViewModel
+
+@{
+    ViewBag.Title = "Change Address";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Enter Pickup Address</h2>
+
+@using (Html.BeginForm("ChangeAddress", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <p class="alert alert-info">* is a <strong>required</strong> field.</p>
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.StreetAddressOne)
+        @Html.TextBoxFor(m => m.StreetAddressOne, new { @class = "form-control", autofocus = "autofocus", placeholder = "eg 123 Drury Lane" })
+        @Html.ValidationMessageFor(m => m.StreetAddressOne)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StreetAddressTwo)
+        @Html.TextBoxFor(m => m.StreetAddressTwo, new { @class = "form-control", placeholder = "eg Apt, Suite, or Unit #" })
+        @Html.ValidationMessageFor(m => m.StreetAddressTwo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.City)
+        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.City)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StateId)
+        @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StateId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ZipcodeId)
+        @Html.TextBoxFor(m => m.ZipcodeId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ZipcodeId)
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+}
