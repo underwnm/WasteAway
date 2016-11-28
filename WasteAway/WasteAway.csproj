@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201611280110299_AddNameToApplicationUser.Designer.cs">
       <DependentUpon>201611280110299_AddNameToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611280207294_UpdateAnnotations.cs" />
+    <Compile Include="Migrations\201611280207294_UpdateAnnotations.Designer.cs">
+      <DependentUpon>201611280207294_UpdateAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -313,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611280110299_AddNameToApplicationUser.resx">
       <DependentUpon>201611280110299_AddNameToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611280207294_UpdateAnnotations.resx">
+      <DependentUpon>201611280207294_UpdateAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

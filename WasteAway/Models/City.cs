@@ -10,7 +10,7 @@ namespace WasteAway.Models
         public string Name { get; set; }
 
         [Required]
-        public int StringId { get; set; }
+        public int StateId { get; set; }
 
         public State State { get; set; }
     }

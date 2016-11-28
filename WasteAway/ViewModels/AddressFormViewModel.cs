@@ -20,11 +20,11 @@ namespace WasteAway.ViewModels
 
         [Required]
         [Display(Name = "City")]
-        public int? CityId { get; set; }
+        public string City { get; set; }
 
         [Required]
         [Display(Name = "Zipcode")]
-        public int? ZipcodeId { get; set; }
+        public string ZipcodeId { get; set; }
 
         [Required]
         [Display(Name = "Weekly Pickup Day")]
