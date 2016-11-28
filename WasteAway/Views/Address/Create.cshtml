@@ -7,10 +7,11 @@
 
 <h2>Add a Pickup Address</h2>
 
-<form>
+@using (Html.BeginForm("Create", "Address"))
+{
     <div class="form-group">
         @Html.LabelFor(m => m.StreetAddressOne)
-        @Html.TextBoxFor(m => m.StreetAddressOne, new { @class = "form-control"})
+        @Html.TextBoxFor(m => m.StreetAddressOne, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.StreetAddressTwo)
@@ -33,5 +34,4 @@
         @Html.DropDownListFor(m => m.WeekdayId, new SelectList(Model.Weekdays, "Id", "Name"), "", new { @class = "form-control" })
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
-
-</form>
+}
