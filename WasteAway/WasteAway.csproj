@@ -186,6 +186,10 @@
     <Compile Include="Migrations\201611272340375_PopulateStatesTable.Designer.cs">
       <DependentUpon>201611272340375_PopulateStatesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611280025592_CreateWeekdaysTable.cs" />
+    <Compile Include="Migrations\201611280025592_CreateWeekdaysTable.Designer.cs">
+      <DependentUpon>201611280025592_CreateWeekdaysTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -194,6 +198,7 @@
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Weekday.cs" />
     <Compile Include="Models\Zipcode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -276,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611272340375_PopulateStatesTable.resx">
       <DependentUpon>201611272340375_PopulateStatesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611280025592_CreateWeekdaysTable.resx">
+      <DependentUpon>201611280025592_CreateWeekdaysTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

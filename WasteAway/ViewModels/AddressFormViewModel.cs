@@ -25,5 +25,9 @@ namespace WasteAway.ViewModels
         [Required]
         [Display(Name = "Zipcode")]
         public int? ZipcodeId { get; set; }
+
+        [Display(Name = "Weekly Pickup Day")]
+        public int WeekdayId { get; set; }
+        public IEnumerable<Weekday> Weekdays { get; set; }
     }
 }
