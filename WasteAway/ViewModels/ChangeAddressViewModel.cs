@@ -25,5 +25,33 @@ namespace WasteAway.ViewModels
         [Required]
         [Display(Name = "Zipcode*")]
         public string ZipcodeId { get; set; }
+
+        public void ChangeAddress(ChangeAddressViewModel model, ApplicationDbContext context)
+        {
+            var city = new City
+            {
+                StateId = model.StateId,
+                Name = model.City
+            };
+            context.Cities.Add(city);
+            context.SaveChanges();
+
+            var zipcode = new Zipcode
+            {
+                Name = model.ZipcodeId,
+            };
+            context.Zipcodes.Add(zipcode);
+            context.SaveChanges();
+
+            var address = new Address
+            {
+                StreetAddressOne = model.StreetAddressOne,
+                StreetAddressTwo = model.StreetAddressTwo,
+                CityId = city.Id,
+                ZipcodeId = zipcode.Id
+            };
+            context.Addresses.Add(address);
+            context.SaveChanges();
+        }
     }
 }

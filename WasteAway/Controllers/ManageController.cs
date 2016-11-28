@@ -249,122 +249,84 @@ namespace WasteAway.Controllers
 
         public ActionResult ChangePickupWeekday()
         {
-            var viewModel = new ChangePickupWeekdayViewModel
+            var model = new ChangePickupWeekdayViewModel
             {
                 Weekdays = _context.Weekdays
             };
 
-            return View(viewModel);
+            return View(model);
         }
 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangePickupWeekday(ChangePickupWeekdayViewModel viewModel)
+        public ActionResult ChangePickupWeekday(ChangePickupWeekdayViewModel model)
         {
             var userId = User.Identity.GetUserId();
 
             if (!ModelState.IsValid)
             {
-                viewModel.Weekdays = _context.Weekdays.ToList();
-                return View("ChangePickupWeekday", viewModel);
+                model.Weekdays = _context.Weekdays.ToList();
+                return View("ChangePickupWeekday", model);
             }
-            var query = (from a in _context.Users
-                         where a.Id == userId
-                         select new { a }).Single();
-            var user = query.a;
-            user.PickupWeekdayId = viewModel.WeekdayId;
-            _context.SaveChanges();
+
+            model.ChangePickup(userId, _context);
 
             return RedirectToAction("Index", "Manage");
         }
 
         public ActionResult AlternatePickupWeekday()
         {
-            var viewModel = new ChangePickupWeekdayViewModel
+            var model = new ChangePickupWeekdayViewModel
             {
                 Weekdays = _context.Weekdays
             };
 
-            return View(viewModel);
+            return View(model);
         }
 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AlternatePickupWeekday(ChangePickupWeekdayViewModel viewModel)
+        public ActionResult AlternatePickupWeekday(ChangePickupWeekdayViewModel model)
         {
             var userId = User.Identity.GetUserId();
 
             if (!ModelState.IsValid)
             {
-                viewModel.Weekdays = _context.Weekdays.ToList();
-                return View("AlternatePickupWeekday", viewModel);
+                model.Weekdays = _context.Weekdays.ToList();
+                return View("AlternatePickupWeekday", model);
             }
-            var query = (from a in _context.Users
-                         where a.Id == userId
-                         select new { a }).Single();
-            var user = query.a;
-            user.AlternatePickupWeekdayId = viewModel.WeekdayId;
-            _context.SaveChanges();
+
+            model.ChangeAlternatePickup(userId, _context);
 
             return RedirectToAction("Index", "Manage");
         }
 
         public ActionResult ChangeAddress()
         {
-            var viewModel = new ChangeAddressViewModel
+            var model = new ChangeAddressViewModel
             {
                 States = _context.States.ToList(),
             };
 
-            return View(viewModel);
+            return View(model);
         }
 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangeAddress(ChangeAddressViewModel viewModel)
+        public ActionResult ChangeAddress(ChangeAddressViewModel model)
         {
             var userId = User.Identity.GetUserId();
 
             if (!ModelState.IsValid)
             {
-                viewModel.States = _context.States.ToList();
-                return View("ChangeAddress", viewModel);
+                model.States = _context.States.ToList();
+                return View("ChangeAddress", model);
             }
 
-            var city = new City
-            {
-                StateId = viewModel.StateId,
-                Name = viewModel.City
-            };
-            _context.Cities.Add(city);
-            _context.SaveChanges();
-
-            var zipcode = new Zipcode
-            {
-                Name = viewModel.ZipcodeId,
-            };
-            _context.Zipcodes.Add(zipcode);
-            _context.SaveChanges();
-
-            var address = new Address
-            {
-                StreetAddressOne = viewModel.StreetAddressOne,
-                StreetAddressTwo = viewModel.StreetAddressTwo,
-                CityId = city.Id,
-                ZipcodeId = zipcode.Id
-            };
-            _context.Addresses.Add(address);
-            _context.SaveChanges();
-
-            var query = (from a in _context.Users
-                         where a.Id == userId
-                         select new { a }).Single();
-            var user = query.a;
-            user.PickupAddressId = address.Id;
-            _context.SaveChanges();
+            model.ChangeAddress(model, _context);
 
             return RedirectToAction("Index", "Manage");
         }
