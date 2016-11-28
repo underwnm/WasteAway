@@ -319,6 +319,8 @@
     <Content Include="Views\Manage\AlternatePickupWeekday.cshtml" />
     <None Include="Views\Manage\ChangeAddress.cshtml" />
     <None Include="Views\Manage\ChangePickupWeekday.cshtml" />
+    <Content Include="Views\Manage\SetVacationLeaveDate.cshtml" />
+    <None Include="Views\Manage\SetVacationReturnDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

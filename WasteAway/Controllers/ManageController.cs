@@ -247,6 +247,70 @@ namespace WasteAway.Controllers
             return View(model);
         }
 
+        public ActionResult SetVacationLeaveDate()
+        {
+            var model = new VacationViewModel
+            {
+                Days = _context.Days,
+                Months = _context.Months,
+                Years = _context.Years
+
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SetVacationLeaveDate(VacationViewModel model)
+        {
+            var userId = User.Identity.GetUserId();
+
+            if (!ModelState.IsValid)
+            {
+                model.Days = _context.Days;
+                model.Months = _context.Months;
+                model.Years = _context.Years;
+                return View("SetVacationLeaveDate", model);
+            }
+
+            model.SetLeaveDate(userId, _context);
+
+            return RedirectToAction("SetVacationReturnDate", "Manage");
+        }
+
+        public ActionResult SetVacationReturnDate()
+        {
+            var model = new VacationViewModel
+            {
+                Days = _context.Days,
+                Months = _context.Months,
+                Years = _context.Years
+
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SetVacationReturnDate(VacationViewModel model)
+        {
+            var userId = User.Identity.GetUserId();
+
+            if (!ModelState.IsValid)
+            {
+                model.Days = _context.Days;
+                model.Months = _context.Months;
+                model.Years = _context.Years;
+                return View("SetVacationReturnDate", model);
+            }
+
+            model.SetReturnDate(userId, _context);
+
+            return RedirectToAction("Index", "Manage");
+        }
+
         public ActionResult ChangePickupWeekday()
         {
             var model = new ChangePickupWeekdayViewModel
