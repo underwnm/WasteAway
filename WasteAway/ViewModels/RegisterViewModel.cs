@@ -33,10 +33,10 @@ namespace WasteAway.ViewModels
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [Display(Name = "Street Address Line*")]
+        [Display(Name = "Address Line*")]
         public string StreetAddressOne { get; set; }
 
-        [Display(Name = "Street Address Line Cont.")]
+        [Display(Name = " ")]
         public string StreetAddressTwo { get; set; }
 
         [Required]
