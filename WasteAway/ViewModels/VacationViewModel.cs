@@ -20,16 +20,22 @@ namespace WasteAway.ViewModels
 
         [Required]
         [Display(Name = "Year")]
-        public int YearId { get; set; }
-        public IEnumerable<Year> Years { get; set; }
+        public string Year { get; set; }
 
         public void SetLeaveDate(string userId, ApplicationDbContext context)
         {
+            var year = new Year
+            {
+                Name = Year
+            };
+            context.Years.Add(year);
+            context.SaveChanges();
+
             var leaveDate = new Date
             {
                 DayId = DayId,
                 MonthId = MonthId,
-                YearId = YearId
+                YearId = year.Id
             };
             context.Dates.Add(leaveDate);
             context.SaveChanges();
@@ -44,11 +50,18 @@ namespace WasteAway.ViewModels
 
         public void SetReturnDate(string userId, ApplicationDbContext context)
         {
+            var year = new Year
+            {
+                Name = Year
+            };
+            context.Years.Add(year);
+            context.SaveChanges();
+
             var returnDate = new Date
             {
                 DayId = DayId,
                 MonthId = MonthId,
-                YearId = YearId
+                YearId = year.Id
             };
             context.Dates.Add(returnDate);
             context.SaveChanges();

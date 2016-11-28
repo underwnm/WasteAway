@@ -252,9 +252,7 @@ namespace WasteAway.Controllers
             var model = new VacationViewModel
             {
                 Days = _context.Days,
-                Months = _context.Months,
-                Years = _context.Years
-
+                Months = _context.Months
             };
 
             return View(model);
@@ -270,7 +268,6 @@ namespace WasteAway.Controllers
             {
                 model.Days = _context.Days;
                 model.Months = _context.Months;
-                model.Years = _context.Years;
                 return View("SetVacationLeaveDate", model);
             }
 
@@ -284,9 +281,7 @@ namespace WasteAway.Controllers
             var model = new VacationViewModel
             {
                 Days = _context.Days,
-                Months = _context.Months,
-                Years = _context.Years
-
+                Months = _context.Months
             };
 
             return View(model);
@@ -302,7 +297,6 @@ namespace WasteAway.Controllers
             {
                 model.Days = _context.Days;
                 model.Months = _context.Months;
-                model.Years = _context.Years;
                 return View("SetVacationReturnDate", model);
             }
 

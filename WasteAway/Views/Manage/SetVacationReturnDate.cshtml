@@ -26,10 +26,10 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.YearId, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.Year, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.YearId, new SelectList(Model.Years, "Id", "Name"), "", new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.YearId)
+            @Html.TextBoxFor(m => m.Year, new { @class = "form-control", placeholder = "eg 2016" })
+            @Html.ValidationMessageFor(m => m.Year)
         </div>
     </div>
     <div class="form-group">
