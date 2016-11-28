@@ -14,7 +14,8 @@ namespace WasteAway.Models
         public DbSet<Month> Months { get; set; }
         public DbSet<Year> Years { get; set; }
         public DbSet<Date> Dates { get; set; }
-
+        public DbSet<Bill> Bills { get; set; }
+        
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

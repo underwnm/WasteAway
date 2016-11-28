@@ -225,8 +225,13 @@
     <Compile Include="Migrations\201611282113022_PopulateYearsTable.Designer.cs">
       <DependentUpon>201611282113022_PopulateYearsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611282332384_CreateBillTable.cs" />
+    <Compile Include="Migrations\201611282332384_CreateBillTable.Designer.cs">
+      <DependentUpon>201611282332384_CreateBillTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\City.cs" />
@@ -372,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611282113022_PopulateYearsTable.resx">
       <DependentUpon>201611282113022_PopulateYearsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611282332384_CreateBillTable.resx">
+      <DependentUpon>201611282332384_CreateBillTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
