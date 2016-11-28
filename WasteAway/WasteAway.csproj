@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201611280207294_UpdateAnnotations.Designer.cs">
       <DependentUpon>201611280207294_UpdateAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611281351531_AddAddressToApplicationUser.cs" />
+    <Compile Include="Migrations\201611281351531_AddAddressToApplicationUser.Designer.cs">
+      <DependentUpon>201611281351531_AddAddressToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -224,6 +228,7 @@
     <Compile Include="ViewModels\IndexViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ManageLoginsViewModel.cs" />
+    <Compile Include="ViewModels\NewViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\SendCodeViewModel.cs" />
@@ -320,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611280207294_UpdateAnnotations.resx">
       <DependentUpon>201611280207294_UpdateAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611281351531_AddAddressToApplicationUser.resx">
+      <DependentUpon>201611281351531_AddAddressToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
