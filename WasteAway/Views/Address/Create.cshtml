@@ -9,20 +9,21 @@
 
 @using (Html.BeginForm("Create", "Address"))
 {
+    <p class="alert alert-info">* is a <strong>required</strong> field.</p>
     @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.LabelFor(m => m.StreetAddressOne)
-        @Html.TextBoxFor(m => m.StreetAddressOne, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.StreetAddressOne, new { @class = "form-control", autofocus = "autofocus", placeholder = "eg 123 Drury Lane" })
         @Html.ValidationMessageFor(m => m.StreetAddressOne)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.StreetAddressTwo)
-        @Html.TextBoxFor(m => m.StreetAddressTwo, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.StreetAddressTwo, new { @class = "form-control", placeholder = "Apt #" })
         @Html.ValidationMessageFor(m => m.StreetAddressTwo)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.StateId)
-        @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "", new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "", new { @class = "form-control"})
         @Html.ValidationMessageFor(m => m.StateId)
     </div>
     <div class="form-group">
