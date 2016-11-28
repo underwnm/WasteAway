@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201611272336099_CreateAddressTable.Designer.cs">
       <DependentUpon>201611272336099_CreateAddressTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611272340375_PopulateStatesTable.cs" />
+    <Compile Include="Migrations\201611272340375_PopulateStatesTable.Designer.cs">
+      <DependentUpon>201611272340375_PopulateStatesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -266,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611272336099_CreateAddressTable.resx">
       <DependentUpon>201611272336099_CreateAddressTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611272340375_PopulateStatesTable.resx">
+      <DependentUpon>201611272340375_PopulateStatesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
