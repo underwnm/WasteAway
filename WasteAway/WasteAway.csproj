@@ -217,6 +217,10 @@
     <Compile Include="Migrations\201611282044403_PopulateDaysTable.Designer.cs">
       <DependentUpon>201611282044403_PopulateDaysTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611282108596_PopulateMonthsTable.cs" />
+    <Compile Include="Migrations\201611282108596_PopulateMonthsTable.Designer.cs">
+      <DependentUpon>201611282108596_PopulateMonthsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -356,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611282044403_PopulateDaysTable.resx">
       <DependentUpon>201611282044403_PopulateDaysTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611282108596_PopulateMonthsTable.resx">
+      <DependentUpon>201611282108596_PopulateMonthsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
