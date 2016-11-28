@@ -15,7 +15,7 @@ namespace WasteAway.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public ManageController()
         {
@@ -257,7 +257,6 @@ namespace WasteAway.Controllers
             return View(model);
         }
 
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangePickupWeekday(ChangePickupWeekdayViewModel model)
@@ -285,7 +284,6 @@ namespace WasteAway.Controllers
             return View(model);
         }
 
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AlternatePickupWeekday(ChangePickupWeekdayViewModel model)
@@ -313,7 +311,6 @@ namespace WasteAway.Controllers
             return View(model);
         }
 
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangeAddress(ChangeAddressViewModel model)
