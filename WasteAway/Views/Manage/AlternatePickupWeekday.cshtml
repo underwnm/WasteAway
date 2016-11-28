@@ -1,0 +1,19 @@
+﻿@model WasteAway.ViewModels.ChangePickupWeekdayViewModel
+@{
+    ViewBag.Title = "AlternatePickupWeekday";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Next Weeks Pickup Day</h2>
+
+@using (Html.BeginForm("AlternatePickupWeekday", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.WeekdayId)
+        @Html.DropDownListFor(m => m.WeekdayId, new SelectList(Model.Weekdays, "Id", "Name"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.WeekdayId)
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

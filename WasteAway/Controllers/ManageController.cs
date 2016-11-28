@@ -247,6 +247,70 @@ namespace WasteAway.Controllers
             return View(model);
         }
 
+        public ActionResult ChangePickupWeekday()
+        {
+            var viewModel = new ChangePickupWeekdayViewModel
+            {
+                Weekdays = _context.Weekdays
+            };
+
+            return View(viewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePickupWeekday(ChangePickupWeekdayViewModel viewModel)
+        {
+            var userId = User.Identity.GetUserId();
+
+            if (!ModelState.IsValid)
+            {
+                viewModel.Weekdays = _context.Weekdays.ToList();
+                return View("ChangePickupWeekday", viewModel);
+            }
+            var query = (from a in _context.Users
+                         where a.Id == userId
+                         select new { a }).Single();
+            var user = query.a;
+            user.PickupWeekdayId = viewModel.WeekdayId;
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Manage");
+        }
+
+        public ActionResult AlternatePickupWeekday()
+        {
+            var viewModel = new ChangePickupWeekdayViewModel
+            {
+                Weekdays = _context.Weekdays
+            };
+
+            return View(viewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AlternatePickupWeekday(ChangePickupWeekdayViewModel viewModel)
+        {
+            var userId = User.Identity.GetUserId();
+
+            if (!ModelState.IsValid)
+            {
+                viewModel.Weekdays = _context.Weekdays.ToList();
+                return View("AlternatePickupWeekday", viewModel);
+            }
+            var query = (from a in _context.Users
+                         where a.Id == userId
+                         select new { a }).Single();
+            var user = query.a;
+            user.AlternatePickupWeekdayId = viewModel.WeekdayId;
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Manage");
+        }
+
         public ActionResult ChangeAddress()
         {
             var viewModel = new ChangeAddressViewModel

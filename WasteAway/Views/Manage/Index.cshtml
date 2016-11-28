@@ -13,20 +13,25 @@
         <dt>Password:</dt>
         <dd>
             [
-            @if (Model.HasPassword)
-            {
-                @Html.ActionLink("Change your password", "ChangePassword")
-            }
-            else
-            {
-                @Html.ActionLink("Create", "SetPassword")
-            }
+            @(Model.HasPassword ? Html.ActionLink("Change your password", "ChangePassword") : Html.ActionLink("Create", "SetPassword"))
             ]
         </dd>
         <dt>Address:</dt>
         <dd>
             [
             @Html.ActionLink("Change your pickup address", "ChangeAddress")
+            ]
+        </dd>
+        <dt>Pickup Weekday:</dt>
+        <dd>
+            [
+            @Html.ActionLink("Change your weekly pickup day", "ChangePickupWeekday")
+            ]
+        </dd>
+        <dt>Alternate Pickup:</dt>
+        <dd>
+            [
+            @Html.ActionLink("Change your pickup day for next week", "ChangePickupWeekday")
             ]
         </dd>
         @*
