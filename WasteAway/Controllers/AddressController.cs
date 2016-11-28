@@ -17,7 +17,8 @@ namespace WasteAway.Controllers
         {
             var viewModel = new AddressFormViewModel
             {
-                States = _context.States.ToList()
+                States = _context.States.ToList(),
+                Weekdays = _context.Weekdays.ToList()
             };
 
             return View(viewModel);

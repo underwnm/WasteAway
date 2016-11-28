@@ -7,10 +7,10 @@ namespace WasteAway.ViewModels
     public class AddressFormViewModel
     {
         [Required]
-        [Display(Name = "Street Address Line 1")]
+        [Display(Name = "Street Address Line")]
         public string StreetAddressOne { get; set; }
 
-        [Display(Name = "Street Address Line 2")]
+        [Display(Name = "Street Address Line Cont.")]
         public string StreetAddressTwo { get; set; }
 
         [Required]
@@ -26,6 +26,7 @@ namespace WasteAway.ViewModels
         [Display(Name = "Zipcode")]
         public int? ZipcodeId { get; set; }
 
+        [Required]
         [Display(Name = "Weekly Pickup Day")]
         public int WeekdayId { get; set; }
         public IEnumerable<Weekday> Weekdays { get; set; }
