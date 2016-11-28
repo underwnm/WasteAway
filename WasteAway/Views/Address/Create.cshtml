@@ -18,18 +18,18 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.StreetAddressTwo)
-        @Html.TextBoxFor(m => m.StreetAddressTwo, new { @class = "form-control", placeholder = "Apt #" })
+        @Html.TextBoxFor(m => m.StreetAddressTwo, new { @class = "form-control", placeholder = "eg Apt, Suite, or Unit #" })
         @Html.ValidationMessageFor(m => m.StreetAddressTwo)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.StateId)
-        @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "", new { @class = "form-control"})
-        @Html.ValidationMessageFor(m => m.StateId)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.City)
         @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.City)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StateId)
+        @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "", new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.StateId)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.ZipcodeId)
