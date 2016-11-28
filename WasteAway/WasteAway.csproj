@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201611281351531_AddAddressToApplicationUser.Designer.cs">
       <DependentUpon>201611281351531_AddAddressToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611281420511_AddAlternateWeekdayPickupToApplicationUser.cs" />
+    <Compile Include="Migrations\201611281420511_AddAlternateWeekdayPickupToApplicationUser.Designer.cs">
+      <DependentUpon>201611281420511_AddAlternateWeekdayPickupToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -328,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611281351531_AddAddressToApplicationUser.resx">
       <DependentUpon>201611281351531_AddAddressToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611281420511_AddAlternateWeekdayPickupToApplicationUser.resx">
+      <DependentUpon>201611281420511_AddAlternateWeekdayPickupToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -30,5 +30,7 @@ namespace WasteAway.ViewModels
         [Display(Name = "Weekly Pickup Day*")]
         public int WeekdayId { get; set; }
         public IEnumerable<Weekday> Weekdays { get; set; }
+
+
     }
 }

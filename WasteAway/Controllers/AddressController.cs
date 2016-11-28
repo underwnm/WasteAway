@@ -69,7 +69,7 @@ namespace WasteAway.Controllers
             var query = (from a in _context.Users
                          where a.Id == userId
                          select new { a }).Single();
-            ApplicationUser user = query.a;
+            var user = query.a;
             user.PickupAddressId = address.Id;
             user.PickupWeekdayId = viewModel.WeekdayId;
             _context.SaveChanges();

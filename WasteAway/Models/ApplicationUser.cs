@@ -26,6 +26,10 @@ namespace WasteAway.Models
         public int? PickupWeekdayId { get; set; }
         public Weekday PickupWeekday { get; set; }
 
+        [ForeignKey("AlternatePickupWeekday")]
+        public int? AlternatePickupWeekdayId { get; set; }
+        public Weekday AlternatePickupWeekday { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
