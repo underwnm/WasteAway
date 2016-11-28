@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using WasteAway.Models;
@@ -23,13 +22,6 @@ namespace WasteAway.ViewModels
         [Display(Name = "Year")]
         public int YearId { get; set; }
         public IEnumerable<Year> Years { get; set; }
-
-        public DateTime Test()
-        {
-            var leaveDate = new DateTime(DayId, MonthId, YearId);
-
-            return leaveDate;
-        }
 
         public void SetLeaveDate(string userId, ApplicationDbContext context)
         {
@@ -65,7 +57,7 @@ namespace WasteAway.ViewModels
                          where a.Id == userId
                          select new { a }).Single();
             var user = query.a;
-            user.LeaveDateId = returnDate.Id;
+            user.ReturnDateId = returnDate.Id;
             context.SaveChanges();
         }
     }
