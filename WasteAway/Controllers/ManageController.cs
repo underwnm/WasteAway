@@ -323,7 +323,8 @@ namespace WasteAway.Controllers
                 return View("ChangeAddress", model);
             }
 
-            model.ChangeAddress(model, _context);
+            var addressId = model.ChangeAddress(_context);
+            model.ChangePickupAddressToNewAddress(userId, addressId, _context);
 
             return RedirectToAction("Index", "Manage");
         }
