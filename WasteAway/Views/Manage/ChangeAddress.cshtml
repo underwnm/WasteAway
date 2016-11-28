@@ -12,29 +12,43 @@
     <p class="alert alert-info">* is a <strong>required</strong> field.</p>
     @Html.AntiForgeryToken()
     <div class="form-group">
-        @Html.LabelFor(m => m.StreetAddressOne)
-        @Html.TextBoxFor(m => m.StreetAddressOne, new { @class = "form-control", autofocus = "autofocus", placeholder = "eg 123 Drury Lane" })
-        @Html.ValidationMessageFor(m => m.StreetAddressOne)
+        @Html.LabelFor(m => m.StreetAddressOne, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.StreetAddressOne, new { @class = "form-control", autofocus = "autofocus", placeholder = "eg 123 Drury Lane" })
+            @Html.ValidationMessageFor(m => m.StreetAddressOne)
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.StreetAddressTwo)
-        @Html.TextBoxFor(m => m.StreetAddressTwo, new { @class = "form-control", placeholder = "eg Apt, Suite, or Unit #" })
-        @Html.ValidationMessageFor(m => m.StreetAddressTwo)
+        @Html.LabelFor(m => m.StreetAddressTwo, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.StreetAddressTwo, new { @class = "form-control", placeholder = "eg Apt, Suite, or Unit #" })
+            @Html.ValidationMessageFor(m => m.StreetAddressTwo)
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.City)
-        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.City)
+        @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.City)
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.StateId)
-        @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.StateId)
+        @Html.LabelFor(m => m.StateId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.StateId)
+        </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.ZipcodeId)
-        @Html.TextBoxFor(m => m.ZipcodeId, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.ZipcodeId)
+        @Html.LabelFor(m => m.ZipcodeId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ZipcodeId, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ZipcodeId)
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Change Address" class="btn btn-default" />
+        </div>
+    </div>
 }

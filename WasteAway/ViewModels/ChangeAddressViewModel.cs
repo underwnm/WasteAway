@@ -8,10 +8,10 @@ namespace WasteAway.ViewModels
     public class ChangeAddressViewModel
     {
         [Required]
-        [Display(Name = "Street Address Line*")]
+        [Display(Name = "Address Line*")]
         public string StreetAddressOne { get; set; }
 
-        [Display(Name = "Street Address Line Cont.")]
+        [Display(Name = "Address Line Cont.")]
         public string StreetAddressTwo { get; set; }
 
         [Required]
