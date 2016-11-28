@@ -1,6 +1,7 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 90px;
     padding-bottom: 20px;
+    font-size: 17px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -60,9 +61,7 @@ span.field-validation-error {
 .navbar-brand {
     font-weight: 700;
 }
-body {
-    font-size: 17px;
-}
+
 body,
 h1,
 h2,
@@ -83,7 +82,6 @@ h6,
 }
 .form-control {
     font-size: 17px;
-    padding: 20px 15px;
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
@@ -98,3 +96,5 @@ h6,
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
+
+/* Page-level styles */
