@@ -15,13 +15,16 @@ namespace WasteAway.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly ApplicationDbContext _context;
 
         public AccountController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
+            _context = new ApplicationDbContext();
             UserManager = userManager;
             SignInManager = signInManager;
         }
@@ -137,7 +140,13 @@ namespace WasteAway.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            var model = new RegisterViewModel()
+            {
+                States = _context.States.ToList(),
+                Weekdays = _context.Weekdays.ToList()
+            };
+
+            return View(model);
         }
 
         //
@@ -149,12 +158,16 @@ namespace WasteAway.Controllers
         {
             if (ModelState.IsValid)
             {
+                var addressId = model.CreateAddress(model, _context);
+
                 var user = new ApplicationUser
                 {
                     UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    PickupAddressId = addressId,
+                    PickupWeekdayId = model.WeekdayId
                 };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
