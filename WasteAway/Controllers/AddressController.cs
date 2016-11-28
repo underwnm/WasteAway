@@ -70,6 +70,9 @@ namespace WasteAway.Controllers
                          where a.Id == userId
                          select new { a }).Single();
             ApplicationUser user = query.a;
+            user.PickupAddressId = address.Id;
+            user.PickupWeekdayId = viewModel.WeekdayId;
+            _context.SaveChanges();
 
 
             return RedirectToAction("Index", "Home");
