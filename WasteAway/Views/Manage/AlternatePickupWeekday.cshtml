@@ -9,6 +9,8 @@
 @using (Html.BeginForm("AlternatePickupWeekday", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
+    <h4>Alternate Pickup Day Form</h4>
+    <hr />
     <div class="form-group">
         @Html.LabelFor(m => m.WeekdayId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
