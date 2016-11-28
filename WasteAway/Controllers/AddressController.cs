@@ -30,6 +30,7 @@ namespace WasteAway.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(AddressFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
