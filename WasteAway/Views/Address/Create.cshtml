@@ -1,0 +1,33 @@
+﻿@model WasteAway.ViewModels.AddressFormViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add a Pickup Address</h2>
+
+<form>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StreetAddressOne)
+        @Html.TextBoxFor(m => m.StreetAddressOne, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StreetAddressTwo)
+        @Html.TextBoxFor(m => m.StreetAddressTwo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StateId)
+        @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CityId)
+        @Html.TextBoxFor(m => m.CityId, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ZipcodeId)
+        @Html.TextBoxFor(m => m.ZipcodeId, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+
+</form>
