@@ -213,6 +213,10 @@
     <Compile Include="Migrations\201611281744572_CreateDateTableAddDateToApplicationUser.Designer.cs">
       <DependentUpon>201611281744572_CreateDateTableAddDateToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611282044403_PopulateDaysTable.cs" />
+    <Compile Include="Migrations\201611282044403_PopulateDaysTable.Designer.cs">
+      <DependentUpon>201611282044403_PopulateDaysTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -245,6 +249,7 @@
     <Compile Include="ViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\SetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\VacationViewModel.cs" />
     <Compile Include="ViewModels\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\VerifyPhoneNumberViewModel.cs" />
   </ItemGroup>
@@ -348,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611281744572_CreateDateTableAddDateToApplicationUser.resx">
       <DependentUpon>201611281744572_CreateDateTableAddDateToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611282044403_PopulateDaysTable.resx">
+      <DependentUpon>201611282044403_PopulateDaysTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
