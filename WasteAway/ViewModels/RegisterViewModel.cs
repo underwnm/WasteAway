@@ -69,7 +69,7 @@ namespace WasteAway.ViewModels
 
             var zipcode = new Zipcode
             {
-                Name = model.ZipcodeId,
+                Name = model.ZipcodeId
             };
             context.Zipcodes.Add(zipcode);
             context.SaveChanges();

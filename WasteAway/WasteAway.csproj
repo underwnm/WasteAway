@@ -168,7 +168,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -210,18 +209,25 @@
     <Compile Include="Migrations\201611281420511_AddAlternateWeekdayPickupToApplicationUser.Designer.cs">
       <DependentUpon>201611281420511_AddAlternateWeekdayPickupToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611281744572_CreateDateTableAddDateToApplicationUser.cs" />
+    <Compile Include="Migrations\201611281744572_CreateDateTableAddDateToApplicationUser.Designer.cs">
+      <DependentUpon>201611281744572_CreateDateTableAddDateToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Date.cs" />
+    <Compile Include="Models\Day.cs" />
+    <Compile Include="Models\Month.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Weekday.cs" />
+    <Compile Include="Models\Year.cs" />
     <Compile Include="Models\Zipcode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AddPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\AddressFormViewModel.cs" />
     <Compile Include="ViewModels\ChangeAddressViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\ChangePickupWeekdayViewModel.cs" />
@@ -297,7 +303,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Address\Create.cshtml" />
     <Content Include="Views\Manage\AlternatePickupWeekday.cshtml" />
     <None Include="Views\Manage\ChangeAddress.cshtml" />
     <None Include="Views\Manage\ChangePickupWeekday.cshtml" />
@@ -340,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611281420511_AddAlternateWeekdayPickupToApplicationUser.resx">
       <DependentUpon>201611281420511_AddAlternateWeekdayPickupToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611281744572_CreateDateTableAddDateToApplicationUser.resx">
+      <DependentUpon>201611281744572_CreateDateTableAddDateToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
