@@ -229,6 +229,10 @@
     <Compile Include="Migrations\201611282332384_CreateBillTable.Designer.cs">
       <DependentUpon>201611282332384_CreateBillTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611282333367_AddBillToApplicationUser.cs" />
+    <Compile Include="Migrations\201611282333367_AddBillToApplicationUser.Designer.cs">
+      <DependentUpon>201611282333367_AddBillToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -380,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611282332384_CreateBillTable.resx">
       <DependentUpon>201611282332384_CreateBillTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611282333367_AddBillToApplicationUser.resx">
+      <DependentUpon>201611282333367_AddBillToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
