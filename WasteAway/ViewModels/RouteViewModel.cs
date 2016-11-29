@@ -14,11 +14,13 @@ namespace WasteAway.ViewModels
         {
             _context = context;
         }
-                public void AssignPickups()
-                {
-                    ClearPickups();
-                    SetPickups(GetUserList(false));
-                }
+
+        public void AssignPickups()
+        {
+            ClearPickups();
+            SetPickups(GetUserList(false));
+            AssignTrucks(GetZipcodes());
+        }
 
         private List<ApplicationUser> GetUserList(bool suspendPickup)
         {
@@ -65,6 +67,36 @@ namespace WasteAway.ViewModels
             const string truncate = "TRUNCATE TABLE Pickups";
             var command = new SqlCommand(truncate);
             command.ExecuteNonQuery();
+        }
+
+        private List<Zipcode> GetZipcodes()
+        {
+            var pickupZipcodes = _context.Pickups.Select(pickup => pickup.User.PickupAddress.Zipcode).ToList();
+            return pickupZipcodes.Distinct().ToList();
+        }
+        private void AssignTrucks(List<Zipcode> pickupZipcodes)
+        {
+            if (pickupZipcodes == null) throw new ArgumentNullException(nameof(pickupZipcodes));
+
+            var i = 0;
+            foreach (var truck in _context.Trucks)
+            {
+                if (i > pickupZipcodes.Count)
+                {
+                    truck.ZipcodeId = null;
+                }
+                else
+                {
+                    truck.ZipcodeId = pickupZipcodes[i].Id;
+                }
+                i++;
+            }
+            for (var j = i; j < pickupZipcodes.Count; j++)
+            {
+                var newTruck = new Truck {ZipcodeId = pickupZipcodes[j].Id};
+                _context.Trucks.Add(newTruck);
+            }
+            _context.SaveChanges();
         }
     }
 }
