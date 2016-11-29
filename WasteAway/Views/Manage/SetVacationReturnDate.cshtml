@@ -14,14 +14,20 @@
     <div class="form-group">
         @Html.LabelFor(m => m.MonthId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.MonthId, new SelectList(Model.Months, "Id", "Name"), "", new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.MonthId,
+                new SelectList(Model.Months, "Id", "Name"),
+                "",
+                new { @class = "form-control", autofocus = "autofocus" })
             @Html.ValidationMessageFor(m => m.MonthId)
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.DayId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.DayId, new SelectList(Model.Days, "Id", "Name"), "", new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.DayId,
+                new SelectList(Model.Days, "Id", "Name"),
+                "",
+                new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.DayId)
         </div>
     </div>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
 using System.Linq;
 using WasteAway.Models;
@@ -11,6 +12,7 @@ namespace WasteAway.ViewModels
         public decimal PickupCost;
         private readonly ApplicationDbContext _context;
 
+        [Display(Name = "Truck Number")]
         public int TruckId { get; set; }
         public IEnumerable<Truck> Trucks { get; set; }
 

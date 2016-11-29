@@ -6,16 +6,27 @@
 
 <h2>Get Route</h2>
 
-@using (Html.BeginForm("GetRoute", "Route", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+@using (Html.BeginForm("GetRoute", "Route", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    <h4>Change Address Form</h4>
-    <hr/>
     @Html.AntiForgeryToken()
+    <h4>Select Truck Form</h4>
+    <hr />
     <div class="form-group">
-        @Html.LabelFor(m => m.TruckId, new {@class = "col-md-2 control-label"})
+        @Html.LabelFor(m => m.TruckId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.TruckId, new SelectList(Model.Trucks, "Id", "Number"), "", new {@class = "form-control"})
+            @Html.DropDownListFor(m => m.TruckId,
+                new SelectList(Model.Trucks, "Id", "Number"),
+                "",
+                new { @class = "form-control", autofocus = "autofocus" })
             @Html.ValidationMessageFor(m => m.TruckId)
         </div>
     </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Select Truck" class="btn btn-default" />
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Back to home page.", "Index", "Home")
+    </p>
 }

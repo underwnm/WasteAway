@@ -13,9 +13,12 @@
     <h4>Change Pickup Day Form</h4>
     <hr />
     <div class="form-group">
-        @Html.LabelFor(m => m.WeekdayId, new { @class = "col-md-2 control-label"})
+        @Html.LabelFor(m => m.WeekdayId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.WeekdayId, new SelectList(Model.Weekdays, "Id", "Name"), "", new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.WeekdayId,
+                new SelectList(Model.Weekdays, "Id", "Name"),
+                "",
+                new { @class = "form-control", autofocus = "autofocus" })
             @Html.ValidationMessageFor(m => m.WeekdayId)
         </div>
     </div>
