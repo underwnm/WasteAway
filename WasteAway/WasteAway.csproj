@@ -262,6 +262,10 @@
     <Compile Include="Migrations\201611291742274_UpdatePickupsTruckIdAnnotations.Designer.cs">
       <DependentUpon>201611291742274_UpdatePickupsTruckIdAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611291745173_PopulateTrucksTable.cs" />
+    <Compile Include="Migrations\201611291745173_PopulateTrucksTable.Designer.cs">
+      <DependentUpon>201611291745173_PopulateTrucksTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -442,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611291742274_UpdatePickupsTruckIdAnnotations.resx">
       <DependentUpon>201611291742274_UpdatePickupsTruckIdAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611291745173_PopulateTrucksTable.resx">
+      <DependentUpon>201611291745173_PopulateTrucksTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

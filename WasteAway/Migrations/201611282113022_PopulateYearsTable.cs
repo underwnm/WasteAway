@@ -14,7 +14,7 @@ namespace WasteAway.Migrations
         
         public override void Down()
         {
-            Sql("DELETE FROM Months WHERE Id IN (1, 2");
+            Sql("DELETE FROM Years WHERE Id IN (1, 2)");
         }
     }
 }

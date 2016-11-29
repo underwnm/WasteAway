@@ -7,13 +7,13 @@ namespace WasteAway.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PopulateStatesTable : IMigrationMetadata
+    public sealed partial class PopulateTrucksTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateStatesTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateTrucksTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611272340375_PopulateStatesTable"; }
+            get { return "201611291745173_PopulateTrucksTable"; }
         }
         
         string IMigrationMetadata.Source
