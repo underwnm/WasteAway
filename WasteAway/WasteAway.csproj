@@ -237,6 +237,10 @@
     <Compile Include="Migrations\201611282358433_ChangeBillAnnotations.Designer.cs">
       <DependentUpon>201611282358433_ChangeBillAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611290207443_AddPickupTable.cs" />
+    <Compile Include="Migrations\201611290207443_AddPickupTable.Designer.cs">
+      <DependentUpon>201611290207443_AddPickupTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -246,6 +250,7 @@
     <Compile Include="Models\Date.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Month.cs" />
+    <Compile Include="Models\Pickup.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Weekday.cs" />
     <Compile Include="Models\Year.cs" />
@@ -268,6 +273,7 @@
     <Compile Include="ViewModels\NewViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\RouteViewModel.cs" />
     <Compile Include="ViewModels\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\ShowBillViewModel.cs" />
@@ -396,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611282358433_ChangeBillAnnotations.resx">
       <DependentUpon>201611282358433_ChangeBillAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611290207443_AddPickupTable.resx">
+      <DependentUpon>201611290207443_AddPickupTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
