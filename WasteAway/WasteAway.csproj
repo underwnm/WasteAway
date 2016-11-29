@@ -241,6 +241,10 @@
     <Compile Include="Migrations\201611290207443_AddPickupTable.Designer.cs">
       <DependentUpon>201611290207443_AddPickupTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611290229288_CreateTruckTable.cs" />
+    <Compile Include="Migrations\201611290229288_CreateTruckTable.Designer.cs">
+      <DependentUpon>201611290229288_CreateTruckTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -252,6 +256,7 @@
     <Compile Include="Models\Month.cs" />
     <Compile Include="Models\Pickup.cs" />
     <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Truck.cs" />
     <Compile Include="Models\Weekday.cs" />
     <Compile Include="Models\Year.cs" />
     <Compile Include="Models\Zipcode.cs" />
@@ -405,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611290207443_AddPickupTable.resx">
       <DependentUpon>201611290207443_AddPickupTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611290229288_CreateTruckTable.resx">
+      <DependentUpon>201611290229288_CreateTruckTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
