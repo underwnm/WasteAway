@@ -20,9 +20,11 @@ namespace WasteAway.ViewModels
         public decimal GetBillAmount(int? billId, ApplicationDbContext context)
         {
             if (billId == null) return 0;
+
             var query = (from a in context.Bills
                 where a.Id == billId
                 select new {a.Amount}).Single();
+
             return query.Amount;
         }
     }

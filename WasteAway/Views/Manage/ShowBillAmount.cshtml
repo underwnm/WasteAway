@@ -4,16 +4,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Current Bill Amount</h2>
+<h2>Bill</h2>
 
 @using (Html.BeginForm("ShowBillAmount", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Set Leave Date</h4>
+    <h4>Current Bill Amount</h4>
     <hr />
-    <div class="form-group">
-        @Html.DisplayFor(m => m.BillAmount, new { @class = "col-md-2 control-label" })
-    </div>
+    <p>
+        <strong>
+            Amount Due: $@Html.DisplayFor(m => m.BillAmount)
+        </strong>
+    </p>
+    <br/>
     <p>
         @Html.ActionLink("Back to my account.", "Index")
     </p>

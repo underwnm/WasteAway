@@ -249,18 +249,10 @@ namespace WasteAway.Controllers
 
         public ActionResult ShowBillAmount()
         {
-
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ShowBillAmount(ShowBillViewModel model)
-        {
             var userId = User.Identity.GetUserId();
+            var model = new ShowBillViewModel();
             model.GetBill(userId, _context);
-
-            return RedirectToAction("Index", "Manage");
+            return View(model);
         }
 
         public ActionResult SetVacationLeaveDate()
