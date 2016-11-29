@@ -1,0 +1,21 @@
+﻿@model WasteAway.ViewModels.RouteViewModel
+@{
+    ViewBag.Title = "GetRoute";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get Route</h2>
+
+@using (Html.BeginForm("GetRoute", "Route", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+{
+    <h4>Change Address Form</h4>
+    <hr/>
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.TruckId, new {@class = "col-md-2 control-label"})
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.TruckId, new SelectList(Model.Trucks, "Id", "Number"), "", new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.TruckId)
+        </div>
+    </div>
+}

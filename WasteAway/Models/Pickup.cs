@@ -10,8 +10,7 @@ namespace WasteAway.Models
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
 
-        [Required]
-        public int TruckId { get; set; }
+        public int? TruckId { get; set; }
         public Truck Truck { get; set; }
     }
 }

@@ -11,6 +11,9 @@ namespace WasteAway.ViewModels
         public decimal PickupCost;
         private readonly ApplicationDbContext _context;
 
+        public int TruckId { get; set; }
+        public IEnumerable<Truck> Trucks { get; set; }
+
         public RouteViewModel(ApplicationDbContext context)
         {
             _context = context;
@@ -62,13 +65,17 @@ namespace WasteAway.ViewModels
 
             foreach (var user in users)
             {
-                var pickup = new Pickup {UserId = user.Id};
+                var pickup = new Pickup
+                {
+                    UserId = user.Id,
+                };
                 _context.Pickups.Add(pickup);
                 _context.SaveChanges();
 
                 foreach (var truck in _context.Trucks)
                 {
                     truck.ZipcodeId = user.PickupAddress.ZipcodeId;
+                    pickup.TruckId = truck.Id;
                     truck.Pickups.Add(pickup);
                 }
             }

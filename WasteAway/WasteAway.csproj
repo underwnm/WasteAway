@@ -258,6 +258,10 @@
     <Compile Include="Migrations\201611291709482_RemoveBillsTableAndAddBalanceToApplicationUser.Designer.cs">
       <DependentUpon>201611291709482_RemoveBillsTableAndAddBalanceToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611291742274_UpdatePickupsTruckIdAnnotations.cs" />
+    <Compile Include="Migrations\201611291742274_UpdatePickupsTruckIdAnnotations.Designer.cs">
+      <DependentUpon>201611291742274_UpdatePickupsTruckIdAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -353,6 +357,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Manage\AlternatePickupWeekday.cshtml" />
+    <Content Include="Views\Home\GetRoute.cshtml" />
     <None Include="Views\Manage\ChangeAddress.cshtml" />
     <None Include="Views\Manage\ChangePickupWeekday.cshtml" />
     <Content Include="Views\Manage\SetVacationLeaveDate.cshtml" />
@@ -434,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611291709482_RemoveBillsTableAndAddBalanceToApplicationUser.resx">
       <DependentUpon>201611291709482_RemoveBillsTableAndAddBalanceToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611291742274_UpdatePickupsTruckIdAnnotations.resx">
+      <DependentUpon>201611291742274_UpdatePickupsTruckIdAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
