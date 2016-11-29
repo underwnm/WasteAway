@@ -19,7 +19,7 @@ namespace WasteAway.ViewModels
 
         public void AssignPickups()
         {
-            ClearPickups();
+            ResetTruckPickupList();
             SetPickups(GetPickupList(false));
         }
 
@@ -71,6 +71,14 @@ namespace WasteAway.ViewModels
                     truck.ZipcodeId = user.PickupAddress.ZipcodeId;
                     truck.Pickups.Add(pickup);
                 }
+            }
+        }
+
+        private void ResetTruckPickupList()
+        {
+            foreach (var truck in _context.Trucks)
+            {
+                truck.Pickups = new List<Pickup>();
             }
         }
         
