@@ -91,6 +91,7 @@ namespace WasteAway.ViewModels
                 }
                 i++;
             }
+
             for (var j = i; j < pickupZipcodes.Count; j++)
             {
                 var newTruck = new Truck {ZipcodeId = pickupZipcodes[j].Id};

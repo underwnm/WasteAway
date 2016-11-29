@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -244,6 +245,10 @@
     <Compile Include="Migrations\201611290229288_CreateTruckTable.cs" />
     <Compile Include="Migrations\201611290229288_CreateTruckTable.Designer.cs">
       <DependentUpon>201611290229288_CreateTruckTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611290239465_EditTruckAnnotations.cs" />
+    <Compile Include="Migrations\201611290239465_EditTruckAnnotations.Designer.cs">
+      <DependentUpon>201611290239465_EditTruckAnnotations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -350,6 +355,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Route\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -413,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611290229288_CreateTruckTable.resx">
       <DependentUpon>201611290229288_CreateTruckTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611290239465_EditTruckAnnotations.resx">
+      <DependentUpon>201611290239465_EditTruckAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
