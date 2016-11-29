@@ -31,7 +31,7 @@ namespace WasteAway.Migrations
             Sql("INSERT INTO Trucks (Id, Number, ZipcodeId) VALUES (2, 'USDOT 8888881',  2)");
             Sql("INSERT INTO Trucks (Id, Number, ZipcodeId) VALUES (3, 'USDOT 8888882',  3)");
             Sql("INSERT INTO Trucks (Id, Number, ZipcodeId) VALUES (4, 'USDOT 8888883',  4)");
-            Sql("INSERT INTO Trucks (Id, Number, ZipcodeId) VALUES (5, 'USDOT 8888885',  5)");
+            Sql("INSERT INTO Trucks (Id, Number, ZipcodeId) VALUES (5, 'USDOT 8888884',  5)");
             Sql("SET IDENTITY_INSERT Trucks OFF");
         }
         
