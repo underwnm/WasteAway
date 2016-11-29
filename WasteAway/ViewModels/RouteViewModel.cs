@@ -18,11 +18,11 @@ namespace WasteAway.ViewModels
         public void AssignPickups()
         {
             ClearPickups();
-            SetPickups(GetUserList(false));
+            SetPickups(GetPickupList(false));
             AssignTrucks(GetZipcodes());
         }
 
-        private List<ApplicationUser> GetUserList(bool suspendPickup)
+        private List<ApplicationUser> GetPickupList(bool suspendPickup)
         {
             var pickupList = new List<ApplicationUser>();
             var date = new DateTime();
@@ -36,6 +36,7 @@ namespace WasteAway.ViewModels
             {
                 pickupList.Add(user);
                 user.AlternatePickupWeekdayId = null;
+                user.Bill.Amount += (decimal) 4.99;
             }
 
             query = (from a in _context.Users
