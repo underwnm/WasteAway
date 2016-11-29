@@ -7,6 +7,6 @@ namespace WasteAway.Models
         public int Id { get; set; }
 
         [Required]
-        public int Amount { get; set; }
+        public decimal Amount { get; set; }
     }
 }

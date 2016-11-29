@@ -233,6 +233,10 @@
     <Compile Include="Migrations\201611282333367_AddBillToApplicationUser.Designer.cs">
       <DependentUpon>201611282333367_AddBillToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611282358433_ChangeBillAnnotations.cs" />
+    <Compile Include="Migrations\201611282358433_ChangeBillAnnotations.Designer.cs">
+      <DependentUpon>201611282358433_ChangeBillAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -266,6 +270,7 @@
     <Compile Include="ViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\SetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\ShowBillViewModel.cs" />
     <Compile Include="ViewModels\VacationViewModel.cs" />
     <Compile Include="ViewModels\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\VerifyPhoneNumberViewModel.cs" />
@@ -330,6 +335,7 @@
     <None Include="Views\Manage\ChangePickupWeekday.cshtml" />
     <Content Include="Views\Manage\SetVacationLeaveDate.cshtml" />
     <None Include="Views\Manage\SetVacationReturnDate.cshtml" />
+    <Content Include="Views\Manage\ShowBillAmount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -387,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611282333367_AddBillToApplicationUser.resx">
       <DependentUpon>201611282333367_AddBillToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611282358433_ChangeBillAnnotations.resx">
+      <DependentUpon>201611282358433_ChangeBillAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -247,6 +247,22 @@ namespace WasteAway.Controllers
             return View(model);
         }
 
+        public ActionResult ShowBillAmount()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ShowBillAmount(ShowBillViewModel model)
+        {
+            var userId = User.Identity.GetUserId();
+            model.GetBill(userId, _context);
+
+            return RedirectToAction("Index", "Manage");
+        }
+
         public ActionResult SetVacationLeaveDate()
         {
             var model = new VacationViewModel
