@@ -250,6 +250,10 @@
     <Compile Include="Migrations\201611290239465_EditTruckAnnotations.Designer.cs">
       <DependentUpon>201611290239465_EditTruckAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611291502392_AddPickupsTodayToApplciationUsersAndTrucks.cs" />
+    <Compile Include="Migrations\201611291502392_AddPickupsTodayToApplciationUsersAndTrucks.Designer.cs">
+      <DependentUpon>201611291502392_AddPickupsTodayToApplciationUsersAndTrucks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -422,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611290239465_EditTruckAnnotations.resx">
       <DependentUpon>201611290239465_EditTruckAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611291502392_AddPickupsTodayToApplciationUsersAndTrucks.resx">
+      <DependentUpon>201611291502392_AddPickupsTodayToApplciationUsersAndTrucks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

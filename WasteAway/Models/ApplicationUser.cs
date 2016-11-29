@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -18,35 +17,27 @@ namespace WasteAway.Models
         [StringLength(100)]
         public string LastName { get; set; }
 
-        [ForeignKey("PickupAddress")]
         public int? PickupAddressId { get; set; }
-
         public Address PickupAddress { get; set; }
 
-        [ForeignKey("PickupWeekday")]
         public int? PickupWeekdayId { get; set; }
-
         public Weekday PickupWeekday { get; set; }
 
-        [ForeignKey("AlternatePickupWeekday")]
         public int? AlternatePickupWeekdayId { get; set; }
-
         public Weekday AlternatePickupWeekday { get; set; }
 
-        [ForeignKey("LeaveDate")]
         public int? LeaveDateId { get; set; }
-
         public Date LeaveDate { get; set; }
 
-        [ForeignKey("ReturnDate")]
         public int? ReturnDateId { get; set; }
-
         public Date ReturnDate { get; set; }
 
-        [ForeignKey("Bill")]
-        public int? BillId { get; set; }
 
+        public int? BillId { get; set; }
         public Bill Bill { get; set; }
+
+        public int? TruckId { get; set; }
+        public Truck Truck { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

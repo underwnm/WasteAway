@@ -29,18 +29,21 @@ namespace WasteAway.ViewModels
             var currentDay = date.DayOfWeek.ToString();
 
             var query = (from a in _context.Users
-                         where a.AlternatePickupWeekday.Name == currentDay && !suspendPickup
+                         where a.AlternatePickupWeekday.Name 
+                            == currentDay && !suspendPickup
                          select a);
 
             foreach (var user in query)
             {
                 pickupList.Add(user);
                 user.AlternatePickupWeekdayId = null;
-                user.Bill.Amount += (decimal) 4.99;
+                user.Bill.Amount += (decimal) 5.99;
             }
 
             query = (from a in _context.Users
-                     where a.PickupWeekday.Name == currentDay && a.AlternatePickupWeekdayId == null && !suspendPickup
+                     where a.PickupWeekday.Name 
+                        == currentDay && a.AlternatePickupWeekdayId 
+                        == null && !suspendPickup
                      select a);
 
             foreach (var user in query)
