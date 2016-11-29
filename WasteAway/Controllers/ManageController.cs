@@ -371,7 +371,9 @@ namespace WasteAway.Controllers
         {
             var model = new ChangeAddressViewModel
             {
+                Cities = _context.Cities.ToList(),
                 States = _context.States.ToList(),
+                Zipcodes = _context.Zipcodes.ToList()
             };
 
             return View(model);
@@ -385,7 +387,9 @@ namespace WasteAway.Controllers
 
             if (!ModelState.IsValid)
             {
+                model.Cities = _context.Cities.ToList();
                 model.States = _context.States.ToList();
+                model.Zipcodes = _context.Zipcodes.ToList();
                 return View("ChangeAddress", model);
             }
 

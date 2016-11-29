@@ -45,13 +45,18 @@
             @Html.ValidationMessageFor(m => m.ConfirmPassword)
         </div>
     </div>
-    <br/>
+    <br />
     <h4>Enter your pickup address.</h4>
-        <hr />
+    <hr />
     <div class="form-group">
         @Html.LabelFor(m => m.StreetAddressOne, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.StreetAddressOne, new { @class = "form-control", placeholder = "eg 123 Drury Lane" })
+            @Html.TextBoxFor(m => m.StreetAddressOne,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = "eg 123 Drury Lane"
+                })
             @Html.ValidationMessageFor(m => m.StreetAddressOne)
         </div>
 
@@ -59,35 +64,52 @@
     <div class="form-group">
         @Html.LabelFor(m => m.StreetAddressTwo, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.StreetAddressTwo, new { @class = "form-control", placeholder = "eg Apt, Suite, or Unit #" })
+            @Html.TextBoxFor(m => m.StreetAddressTwo,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = "eg Apt, Suite, or Unit #"
+                })
             @Html.ValidationMessageFor(m => m.StreetAddressTwo)
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.CityId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.City)
+            @Html.DropDownListFor(m => m.CityId,
+                    new SelectList(Model.Cities, "Id", "Name"),
+                    "",
+                    new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CityId)
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.StateId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "", new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.StateId,
+                new SelectList(Model.States, "Id", "Name"),
+                "",
+                new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.StateId)
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.ZipcodeId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.ZipcodeId, new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.ZipcodeId,
+                new SelectList(Model.Zipcodes, "Id", "Name"),
+                "",
+                new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.ZipcodeId)
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.WeekdayId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.WeekdayId, new SelectList(Model.Weekdays, "Id", "Name"), "", new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.WeekdayId,
+                new SelectList(Model.Weekdays, "Id", "Name"),
+                "",
+                new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.WeekdayId)
         </div>
     </div>
