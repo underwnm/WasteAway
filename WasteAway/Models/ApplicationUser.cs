@@ -32,11 +32,15 @@ namespace WasteAway.Models
         public int? ReturnDateId { get; set; }
         public Date ReturnDate { get; set; }
 
-        public int? BillId { get; set; }
-        public Bill Bill { get; set; }
+        public decimal Balance { get; set; }
 
         public int? TruckId { get; set; }
         public Truck Truck { get; set; }
+
+        public ApplicationUser()
+        {
+            Balance = 0;
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

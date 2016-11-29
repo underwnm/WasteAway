@@ -14,7 +14,6 @@ namespace WasteAway.Models
         public DbSet<Month> Months { get; set; }
         public DbSet<Year> Years { get; set; }
         public DbSet<Date> Dates { get; set; }
-        public DbSet<Bill> Bills { get; set; }
         public DbSet<Pickup> Pickups { get; set; }
         public DbSet<Truck> Trucks { get; set; }
         

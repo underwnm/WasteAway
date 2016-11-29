@@ -8,22 +8,22 @@ namespace WasteAway.ViewModels
 {
     public class RouteViewModel
     {
-        private readonly decimal _pickupCost;
+        public decimal PickupCost;
         private readonly ApplicationDbContext _context;
 
         public RouteViewModel(ApplicationDbContext context)
         {
             _context = context;
-            _pickupCost = (decimal) 5.99;
+            PickupCost = (decimal) 5.99;
         }
 
         public void AssignPickups()
         {
             ResetTruckPickupList();
-            SetPickups(GetPickupList(false));
+            SetTruckPickups(CreatePickupList(false));
         }
 
-        private List<ApplicationUser> GetPickupList(bool suspendPickup)
+        private List<ApplicationUser> CreatePickupList(bool suspendPickup)
         {
             var pickupList = new List<ApplicationUser>();
             var date = new DateTime();
@@ -38,7 +38,7 @@ namespace WasteAway.ViewModels
             {
                 pickupList.Add(user);
                 user.AlternatePickupWeekdayId = null;
-                user.Bill.Amount += _pickupCost;
+                user.Balance += PickupCost;
             }
 
             query = (from a in _context.Users
@@ -50,13 +50,13 @@ namespace WasteAway.ViewModels
             foreach (var user in query)
             {
                 pickupList.Add(user);
-                user.Bill.Amount += _pickupCost;
+                user.Balance += PickupCost;
             }
 
             return pickupList;
         }
 
-        private void SetPickups(List<ApplicationUser> users)
+        private void SetTruckPickups(List<ApplicationUser> users)
         {
             if (users == null) throw new ArgumentNullException(nameof(users));
 

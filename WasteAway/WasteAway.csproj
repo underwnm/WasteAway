@@ -254,9 +254,12 @@
     <Compile Include="Migrations\201611291502392_AddPickupsTodayToApplciationUsersAndTrucks.Designer.cs">
       <DependentUpon>201611291502392_AddPickupsTodayToApplciationUsersAndTrucks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611291709482_RemoveBillsTableAndAddBalanceToApplicationUser.cs" />
+    <Compile Include="Migrations\201611291709482_RemoveBillsTableAndAddBalanceToApplicationUser.Designer.cs">
+      <DependentUpon>201611291709482_RemoveBillsTableAndAddBalanceToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\City.cs" />
@@ -284,7 +287,6 @@
     <Compile Include="ViewModels\IndexViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ManageLoginsViewModel.cs" />
-    <Compile Include="ViewModels\NewViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\RouteViewModel.cs" />
@@ -429,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611291502392_AddPickupsTodayToApplciationUsersAndTrucks.resx">
       <DependentUpon>201611291502392_AddPickupsTodayToApplciationUsersAndTrucks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611291709482_RemoveBillsTableAndAddBalanceToApplicationUser.resx">
+      <DependentUpon>201611291709482_RemoveBillsTableAndAddBalanceToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
