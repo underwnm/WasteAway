@@ -24,12 +24,13 @@ textarea {
     max-width: 280px;
 }
 
+
+/* Bootstrap Overrides */
 span.field-validation-error {
     color: red;
     font-weight: bold;
 }
 
-/* Bootstrap Overrides */
 .navbar-inverse {
     background-color: #ff4342;
     border-color: #ff4342;

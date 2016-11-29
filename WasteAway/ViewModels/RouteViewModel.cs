@@ -8,18 +8,19 @@ namespace WasteAway.ViewModels
 {
     public class RouteViewModel
     {
+        private readonly decimal _pickupCost;
         private readonly ApplicationDbContext _context;
 
         public RouteViewModel(ApplicationDbContext context)
         {
             _context = context;
+            _pickupCost = (decimal) 5.99;
         }
 
         public void AssignPickups()
         {
             ClearPickups();
             SetPickups(GetPickupList(false));
-            AssignTrucks(GetZipcodes());
         }
 
         private List<ApplicationUser> GetPickupList(bool suspendPickup)
@@ -37,7 +38,7 @@ namespace WasteAway.ViewModels
             {
                 pickupList.Add(user);
                 user.AlternatePickupWeekdayId = null;
-                user.Bill.Amount += (decimal) 5.99;
+                user.Bill.Amount += _pickupCost;
             }
 
             query = (from a in _context.Users
@@ -49,6 +50,7 @@ namespace WasteAway.ViewModels
             foreach (var user in query)
             {
                 pickupList.Add(user);
+                user.Bill.Amount += _pickupCost;
             }
 
             return pickupList;
@@ -63,6 +65,12 @@ namespace WasteAway.ViewModels
                 var pickup = new Pickup {UserId = user.Id};
                 _context.Pickups.Add(pickup);
                 _context.SaveChanges();
+
+                foreach (var truck in _context.Trucks)
+                {
+                    truck.ZipcodeId = user.PickupAddress.ZipcodeId;
+                    truck.Pickups.Add(pickup);
+                }
             }
         }
         
@@ -71,37 +79,6 @@ namespace WasteAway.ViewModels
             const string truncate = "TRUNCATE TABLE Pickups";
             var command = new SqlCommand(truncate);
             command.ExecuteNonQuery();
-        }
-
-        private List<Zipcode> GetZipcodes()
-        {
-            var pickupZipcodes = _context.Pickups.Select(pickup => pickup.User.PickupAddress.Zipcode).ToList();
-            return pickupZipcodes.Distinct().ToList();
-        }
-        private void AssignTrucks(List<Zipcode> pickupZipcodes)
-        {
-            if (pickupZipcodes == null) throw new ArgumentNullException(nameof(pickupZipcodes));
-
-            var i = 0;
-            foreach (var truck in _context.Trucks)
-            {
-                if (i > pickupZipcodes.Count)
-                {
-                    truck.ZipcodeId = null;
-                }
-                else
-                {
-                    truck.ZipcodeId = pickupZipcodes[i].Id;
-                }
-                i++;
-            }
-
-            for (var j = i; j < pickupZipcodes.Count; j++)
-            {
-                var newTruck = new Truck {ZipcodeId = pickupZipcodes[j].Id};
-                _context.Trucks.Add(newTruck);
-            }
-            _context.SaveChanges();
         }
     }
 }

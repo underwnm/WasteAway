@@ -32,7 +32,6 @@ namespace WasteAway.Models
         public int? ReturnDateId { get; set; }
         public Date ReturnDate { get; set; }
 
-
         public int? BillId { get; set; }
         public Bill Bill { get; set; }
 
