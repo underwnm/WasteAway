@@ -24,11 +24,18 @@ namespace WasteAway.ViewModels
 
         public void ChangeAlternatePickup(string userId, ApplicationDbContext context)
         {
-            var query = (from a in context.Users
-                         where a.Id == userId
-                         select new { a }).Single();
-            var user = query.a;
-            user.AlternatePickupWeekdayId = WeekdayId;
+            var result = context.Users.Where(a => a.Id == userId).ToList();
+
+            foreach (var user in result)
+            {
+                user.PickupWeekdayId = WeekdayId;
+            }
+
+//            var query = (from a in context.Users
+//                         where a.Id == userId
+//                         select new { a }).Single();
+            //var user = query.a;
+            //user.AlternatePickupWeekdayId = WeekdayId;
             context.SaveChanges();
         }
     }

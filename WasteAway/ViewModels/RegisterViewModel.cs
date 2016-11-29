@@ -29,7 +29,7 @@ namespace WasteAway.ViewModels
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
         [Required]
@@ -41,7 +41,7 @@ namespace WasteAway.ViewModels
 
         [Required]
         [Display(Name = "State*")]
-        public int StateId { get; set; }
+        public int? StateId { get; set; }
 
         public IEnumerable<State> States { get; set; }
 
@@ -63,12 +63,12 @@ namespace WasteAway.ViewModels
 
         public IEnumerable<Weekday> Weekdays { get; set; }
 
-        public int CreateAddress(RegisterViewModel model, ApplicationDbContext context)
+        public int CreateAddress(ApplicationDbContext context)
         {
             var address = new Address
             {
-                StreetAddressOne = model.StreetAddressOne,
-                StreetAddressTwo = model.StreetAddressTwo,
+                StreetAddressOne = StreetAddressOne,
+                StreetAddressTwo = StreetAddressTwo,
                 CityId = CityId,
                 ZipcodeId = ZipcodeId
             };

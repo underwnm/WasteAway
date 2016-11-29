@@ -259,8 +259,8 @@ namespace WasteAway.Controllers
         {
             var model = new VacationViewModel
             {
-                Days = _context.Days,
-                Months = _context.Months
+                Days = _context.Days.ToList(),
+                Months = _context.Months.ToList()
             };
 
             return View(model);
@@ -274,8 +274,8 @@ namespace WasteAway.Controllers
 
             if (!ModelState.IsValid)
             {
-                model.Days = _context.Days;
-                model.Months = _context.Months;
+                model.Days = _context.Days.ToList();
+                model.Months = _context.Months.ToList();
                 return View("SetVacationLeaveDate", model);
             }
 
@@ -288,8 +288,8 @@ namespace WasteAway.Controllers
         {
             var model = new VacationViewModel
             {
-                Days = _context.Days,
-                Months = _context.Months
+                Days = _context.Days.ToList(),
+                Months = _context.Months.ToList()
             };
 
             return View(model);
@@ -303,8 +303,8 @@ namespace WasteAway.Controllers
 
             if (!ModelState.IsValid)
             {
-                model.Days = _context.Days;
-                model.Months = _context.Months;
+                model.Days = _context.Days.ToList();
+                model.Months = _context.Months.ToList();
                 return View("SetVacationReturnDate", model);
             }
 
@@ -317,7 +317,7 @@ namespace WasteAway.Controllers
         {
             var model = new ChangePickupWeekdayViewModel
             {
-                Weekdays = _context.Weekdays
+                Weekdays = _context.Weekdays.ToList()
             };
 
             return View(model);
