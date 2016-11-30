@@ -30,3 +30,42 @@
         @Html.ActionLink("Back to home page.", "Index", "Home")
     </p>
 }
+<script>
+          function initialize()
+         {
+            geocoder = new google.maps.Geocoder();
+      var latlng = new google.maps.LatLng(43.3872, -87.8756);
+      var mapOptions =
+      {
+        zoom: 15,
+        center: latlng
+      }
+      map = new google.maps.Map(document.getElementById('Truck Route'), mapOptions);
+      codeAddress();
+          }
+    </script>
+    <script> 
+    function Address(address)
+    {
+    geocoder.geocode( {address:address}, function(results, status)
+    {
+    if (status == google.maps.GeocoderStatus.OK)
+    {
+    map.setCenter(results[0].geometry.location);
+    
+    var marker = new google.maps.Marker(
+    {
+    map: map,
+    position: results[0].geometry.location
+    });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);    
+    }
+    });
+    }
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClwtEuYnCM7X2XwMdR9x4D56tbw5KehIM&callback=initMap">
+    </script>
+
