@@ -19,12 +19,18 @@ namespace WasteAway.Controllers
 
             return View(model);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetRoute(RouteViewModel model)
+        {
+            model.AssignPickups();
+            return RedirectToAction("GoogleRoute", "Route");
+        }
         public ActionResult GoogleRoute()
         {
-            var model = new RouteViewModel(_context);
-
-            model.AssignPickups();
-            return View(model);
+            
+            return View();
         }
     }
 }
