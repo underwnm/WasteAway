@@ -15,6 +15,10 @@ namespace WasteAway.ViewModels
         public int TruckId { get; set; }
         public IEnumerable<Truck> Trucks { get; set; }
 
+        public RouteViewModel()
+        {
+            
+        }
         public RouteViewModel(ApplicationDbContext context)
         {
             _context = context;
