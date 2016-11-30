@@ -17,6 +17,12 @@ namespace WasteAway.Controllers
         {
             var model = new RouteViewModel(_context);
 
+            return View(model);
+        }
+        public ActionResult GoogleRoute()
+        {
+            var model = new RouteViewModel(_context);
+
             model.AssignPickups();
             return View(model);
         }
