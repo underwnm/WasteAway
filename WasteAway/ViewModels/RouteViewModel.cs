@@ -30,7 +30,7 @@ namespace WasteAway.ViewModels
         private List<ApplicationUser> CreatePickupList(bool suspendPickup)
         {
             var pickups = new List<ApplicationUser>();
-            var date = new DateTime();
+            var date = DateTime.Today;
             var currentDay = date.DayOfWeek.ToString();
 
             var results = _context.Users
@@ -45,9 +45,9 @@ namespace WasteAway.ViewModels
             }
 
             results = _context.Users
-                    .Where(a => a.PickupWeekday.Name == currentDay)
-                    .Where(a => a.AlternatePickupWeekdayId == null && !suspendPickup)
-                    .ToList();
+                .Where(a => a.PickupWeekday.Name == currentDay)
+                .Where(a => a.AlternatePickupWeekdayId == null && !suspendPickup)
+                .ToList();
 
             foreach (var user in results)
             {
@@ -68,16 +68,32 @@ namespace WasteAway.ViewModels
                 {
                     UserId = user.Id,
                 };
+
+                var zipcodeId = GetPickupAddressZipcodeId(user);
+                SetPickupToTruckList(pickup, zipcodeId);
                 _context.Pickups.Add(pickup);
                 _context.SaveChanges();
-
-                foreach (var truck in _context.Trucks)
-                {
-                    truck.ZipcodeId = user.PickupAddress.ZipcodeId;
-                    pickup.TruckId = truck.Id;
-                    truck.Pickups.Add(pickup);
-                }
             }
+        }
+
+        private void SetPickupToTruckList(Pickup pickup, int zipcodeId)
+        {
+            foreach (var truck in _context.Trucks)
+            {
+                truck.ZipcodeId = zipcodeId;
+                pickup.TruckId = truck.Id;
+                truck.Pickups.Add(pickup);
+            }
+        }
+
+        private int GetPickupAddressZipcodeId(ApplicationUser user)
+        {
+            var result = _context.Addresses
+                .Where(a => a.Id == user.PickupAddressId)
+                .Select(z => z.ZipcodeId)
+                .Single();
+
+            return result;
         }
 
         private void ResetTruckPickupList()
