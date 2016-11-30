@@ -50,7 +50,7 @@ namespace WasteAway.ViewModels
 
         public void ChangePickupAddressToNewAddress(string userId, int addressId, ApplicationDbContext context)
         {
-            var result = context.Users.Where(u => u.Id == userId).ToList();
+            var result = context.Users.Where(u => u.Id == userId);
 
             foreach (var user in result)
             {
