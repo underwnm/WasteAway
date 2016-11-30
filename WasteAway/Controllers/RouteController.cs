@@ -19,6 +19,6 @@ namespace WasteAway.Controllers
 
             model.AssignPickups();
             return View(model);
-        }
+        
     }
 }
