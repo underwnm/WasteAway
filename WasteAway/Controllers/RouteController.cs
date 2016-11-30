@@ -16,7 +16,7 @@ namespace WasteAway.Controllers
 
         public ActionResult GetRoute()
         {
-            var model = new RouteViewModel(_context)
+            var model = new RouteViewModel()
             {
                 Trucks = _context.Trucks.ToList()
             };
