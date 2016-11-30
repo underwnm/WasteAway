@@ -99,8 +99,7 @@ namespace WasteAway.ViewModels
 
         private void ClearPickupsTable()
         {
-            var data = (from n in _context.Pickups select n);
-
+            var data = _context.Pickups.ToList();
             _context.Pickups.RemoveRange(data);
             _context.SaveChanges();
         }
