@@ -18,12 +18,11 @@ namespace WasteAway.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult GetRoute()
         {
-            var model = new RouteViewModel()
-            {
-                Trucks = _context.Trucks
-            };
+            var model = new RouteViewModel();
+            model.GetRoute(_context);
 
             return View(model);
         }

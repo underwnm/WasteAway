@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using WasteAway.Models;
 using WasteAway.ViewModels;
 
@@ -14,23 +13,15 @@ namespace WasteAway.Controllers
             _context = new ApplicationDbContext();
         }
 
-        public ActionResult GetRoute()
-        {
-            var model = new RouteViewModel()
-            {
-                Trucks = _context.Trucks.ToList()
-            };
-
-            return View(model);
-        }
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult GetRoute(RouteViewModel model)
         {
-            //model.AssignPickups();
+       
             return RedirectToAction("GoogleRoute", "Route", model);
         }
+
         public ActionResult GoogleRoute(RouteViewModel model)
         {
             return View();
