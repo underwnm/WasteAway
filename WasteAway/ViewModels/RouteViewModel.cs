@@ -13,12 +13,12 @@ namespace WasteAway.ViewModels
 
         public int Route = 0;
         private ApplicationDbContext _context;
-        private List<string> _addressesForPickup;
+        public List<string> AddressesForPickup;
 
 
         public RouteViewModel()
         {
-            _addressesForPickup = new List<string>();
+            AddressesForPickup = new List<string>();
 
         }
 
@@ -56,7 +56,7 @@ namespace WasteAway.ViewModels
                 .Single();
 
             var addressOfUser = $"{address.StreetAddressOne} {address.StreetAddressTwo}, {city.Name}, {state.Name}".Replace(" ", "+"); ;
-            _addressesForPickup.Add(addressOfUser);
+            AddressesForPickup.Add(addressOfUser);
         }
 
         public void SetWaypoints()
@@ -70,7 +70,7 @@ namespace WasteAway.ViewModels
             {
                 AddAddress(pickup.UserId);
             }
-            _addressesForPickup = _addressesForPickup.Distinct().ToList();
+            AddressesForPickup = AddressesForPickup.Distinct().ToList();
         }
 
         public string GetGoogleApi()
@@ -86,16 +86,16 @@ namespace WasteAway.ViewModels
         private string AddAddressToRoute()
         {
             
-            var origin = _addressesForPickup[0];
-            var destination = _addressesForPickup[_addressesForPickup.Count - 1];
+            var origin = AddressesForPickup[0];
+            var destination = AddressesForPickup[AddressesForPickup.Count - 1];
             var waypoints = "";
-            for (var i = 1; i < _addressesForPickup.Count - 1; i++)
+            for (var i = 1; i < AddressesForPickup.Count - 1; i++)
             {
                 if (i != 1)
                 {
                     waypoints += "|";
                 }
-                waypoints += _addressesForPickup[i];
+                waypoints += AddressesForPickup[i];
 
             }
 

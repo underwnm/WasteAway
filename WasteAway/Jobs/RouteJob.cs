@@ -8,13 +8,11 @@ namespace WasteAway.Jobs
 {
     public class RouteJob : IJob
     {
-        public decimal PickupCost;
         private readonly ApplicationDbContext _context;
 
         public RouteJob()
         {
             _context = new ApplicationDbContext();
-            PickupCost = (decimal)5.99;
         }
 
         public void Execute(IJobExecutionContext context)
@@ -57,10 +55,9 @@ namespace WasteAway.Jobs
 
             foreach (var user in results)
             {
-                if (date > LeaveOfAbsence(user.LeaveDateId)) continue;
+                if (date >= LeaveOfAbsence(user.LeaveDateId)) continue;
                 pickups.Add(user);
                 user.AlternatePickupWeekdayId = null;
-                user.Balance += PickupCost;
             }
 
             results = _context.Users
@@ -72,7 +69,6 @@ namespace WasteAway.Jobs
             {
                 if (date > LeaveOfAbsence(user.LeaveDateId)) continue;
                 pickups.Add(user);
-                user.Balance += PickupCost;
             }
 
             return pickups;
