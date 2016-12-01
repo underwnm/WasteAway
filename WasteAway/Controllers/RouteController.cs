@@ -13,18 +13,28 @@ namespace WasteAway.Controllers
             _context = new ApplicationDbContext();
         }
 
+
         [Authorize]
-        [HttpPost]
+        public ActionResult GetRoute()
+        {
+            var model = new RouteViewModel();
+            model.GetRoute();
+            return View(model);
+        }
+
+        [Authorize]
         [ValidateAntiForgeryToken]
+        [HttpPost]
         public ActionResult GetRoute(RouteViewModel model)
         {
-       
-            return RedirectToAction("GoogleRoute", "Route", model);
+            model.SetWaypoints();
+            return RedirectToAction("GoogleRoute", "Route", new { model = model});
         }
 
         public ActionResult GoogleRoute(RouteViewModel model)
         {
-            return View();
+
+            return View(model);
         }
     }
 }

@@ -70,7 +70,7 @@ namespace WasteAway.Jobs
 
             foreach (var user in results)
             {
-                if (date > LeaveOfAbsence(user.LeaveDateId)) continue;;
+                if (date > LeaveOfAbsence(user.LeaveDateId)) continue;
                 pickups.Add(user);
                 user.Balance += PickupCost;
             }
