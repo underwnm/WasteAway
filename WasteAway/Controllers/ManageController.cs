@@ -247,6 +247,25 @@ namespace WasteAway.Controllers
             return View(model);
         }
 
+        public ActionResult Route()
+        {
+            var model = new RouteViewModel();
+            model.FindTrucksWithPickups(_context);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Route(RouteViewModel model)
+        {
+            var updateModel = new RouteViewModel();
+            updateModel.FindTrucksWithPickups(_context);
+            updateModel.Route = model.TruckId;
+            return View(updateModel);
+        }
+
+
+
         public ActionResult ShowBillAmount()
         {
             var userId = User.Identity.GetUserId();

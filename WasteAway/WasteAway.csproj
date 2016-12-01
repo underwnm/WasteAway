@@ -183,7 +183,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -379,6 +378,7 @@
     <None Include="Views\Manage\ChangeAddress.cshtml" />
     <None Include="Views\Manage\ChangePickupWeekday.cshtml" />
     <Content Include="Views\Manage\SetVacationLeaveDate.cshtml" />
+    <Content Include="Views\Manage\Route.cshtml" />
     <None Include="Views\Manage\SetVacationReturnDate.cshtml" />
     <Content Include="Views\Manage\ShowBillAmount.cshtml" />
     <Content Include="Views\Route\GoogleRoute.cshtml" />

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using WasteAway.Models;
@@ -12,17 +11,20 @@ namespace WasteAway.ViewModels
         public int TruckId { get; set; }
         public IEnumerable<Truck> Trucks { get ; set; }
 
+        public int Route = 0;
         private ApplicationDbContext _context;
-        private List<string> _route;
+        private List<string> _addressesForPickup;
+
 
         public RouteViewModel()
         {
-            _context = new ApplicationDbContext();
-            _route = new List<string>();
+            _addressesForPickup = new List<string>();
+
         }
 
-        public void GetRoute()
+        public void FindTrucksWithPickups(ApplicationDbContext context)
         {
+            _context = context;
             var results = _context.Trucks
                 .Where(a => a.Pickups.Count > 0)
                 .Select(a => a)
@@ -31,78 +33,73 @@ namespace WasteAway.ViewModels
             Trucks = results;
         }
 
+        private void AddAddress(string userId)
+        {
+            var user = _context.Users
+                .Where(a => a.Id == userId)
+                .Select(a => a)
+                .Single();
+
+            var address = _context.Addresses
+                .Where(a => a.Id == user.PickupAddressId)
+                .Select(a => a)
+                .Single();
+
+            var city = _context.Cities
+                .Where(a => a.Id == address.CityId)
+                .Select(a => a)
+                .Single();
+
+            var state = _context.States
+                .Where(a => a.Id == city.StateId)
+                .Select(a => a)
+                .Single();
+
+            var addressOfUser = $"{address.StreetAddressOne} {address.StreetAddressTwo}, {city.Name}, {state.Name}".Replace(" ", "+"); ;
+            _addressesForPickup.Add(addressOfUser);
+        }
+
         public void SetWaypoints()
         {
             var pickups = _context.Pickups
-                .Where(a => a.TruckId == TruckId)
-                .Select(a => a.UserId)
+                .Where(a => a.TruckId == Route)
+                .Select(a => a)
                 .ToList();
 
-            var addressId = new List<int?>();
-            for (int i = 0; i < pickups.Count; i++)
+            foreach (var pickup in pickups)
             {
-                var results = _context.Users
-                    .Where(a => a.Id == pickups[i])
-                    .Select(a => a.PickupAddressId)
-                    .SingleOrDefault();
-                addressId.Add(results);
+                AddAddress(pickup.UserId);
             }
-
-            var addresses = new List<Address>();
-            for (int i = 0; i < pickups.Count; i++)
-            {
-                var results = _context.Addresses
-                    .SingleOrDefault(a => a.Id == addressId[i].Value);
-                addresses.Add(results);
-            }
-
-            for (int i = 0; i < addresses.Count; i++)
-            {
-                var streetAddressOne = addresses[i].StreetAddressOne;
-                var streetAddressTwo = addresses[i].StreetAddressTwo;
-                var city = addresses[i].City.Name;
-                var state = addresses[i].City.State.Name;
-                _route.Add($"{streetAddressOne} {streetAddressTwo}, {city}, {state}");
-            }
-
-
-//            var route = new List<string>();
-//            foreach (var address in addresses)
-//            {
-//                var streetAddressOne = address.StreetAddressOne;
-//                var streetAddressTwo = address.StreetAddressTwo;
-//                var city = address.City.Name;
-//                var state = address.City.State.Name;
-//                route.Add($"{streetAddressOne} {streetAddressTwo}, {city}, {state}");
-//            }
-
-
+            _addressesForPickup = _addressesForPickup.Distinct().ToList();
         }
 
         public string GetGoogleApi()
         {
-            var link = "https://maps.googleapis.com/maps/api/directions/json?";
+
+            SetWaypoints();
             var waypoints = AddAddressToRoute();
-            var key = "&key=AIzaSyClwtEuYnCM7X2XwMdR9x4D56tbw5KehIM&callback=initialize";
-            return link + waypoints + key;
+            const string key = "key=AIzaSyDgaGKD2x4WZF367-tX6vUmF06vUXT3t4A";
+            var link = "https://www.google.com/maps/embed/v1/directions?" + key + waypoints;
+            return link;
         }
 
         private string AddAddressToRoute()
         {
-            if (_route == null) throw new ArgumentNullException(nameof(_route));
-            var start = _route[0];
-            var end = _route[_route.Count - 1];
+            
+            var origin = _addressesForPickup[0];
+            var destination = _addressesForPickup[_addressesForPickup.Count - 1];
             var waypoints = "";
-            for (int i = 1; i < _route.Count-1; i++)
+            for (var i = 1; i < _addressesForPickup.Count - 1; i++)
             {
-                if (i != _route.Count - 2)
+                if (i != 1)
                 {
-                    waypoints += "|" + _route[i];
+                    waypoints += "|";
                 }
-                
+                waypoints += _addressesForPickup[i];
+
             }
 
-            return "origin=" + start + "&destination=" + end + "&waypoints=optimize:true" + waypoints;
+            return "&origin=" + origin + "&destination=" + destination + "&waypoints=" + waypoints;
         }
     }
 }

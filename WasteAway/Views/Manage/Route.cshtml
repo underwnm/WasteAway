@@ -1,0 +1,48 @@
+﻿@model WasteAway.ViewModels.RouteViewModel
+@{
+    ViewBag.Title = "Route";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Route</h2>
+
+@using (Html.BeginForm("Route", "Manage", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+{
+    <h4>Select Truck Form</h4>
+    <hr/>
+    <p class="text-success">@ViewBag.StatusMessage</p>
+    @Html.AntiForgeryToken()
+    if (Model.Route == 0)
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.TruckId, new {@class = "col-md-2 control-label"})
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.TruckId,
+                    new SelectList(Model.Trucks, "Id", "Number"),
+                    "",
+                    new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.TruckId)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Choose Route" class="btn btn-default"/>
+            </div>
+        </div>
+    }
+    <p>
+        @Html.ActionLink("Back to my account.", "Index")
+    </p>
+    <br />
+    <br />
+    <br />
+    if (Model.Route != 0)
+    {
+        <div class="row">
+            <div class="col-sm-9 google-maps">
+                <iframe frameborder="0"
+                        src=@Model.GetGoogleApi() allowfullscreen></iframe>
+            </div>
+        </div>
+    }
+}
