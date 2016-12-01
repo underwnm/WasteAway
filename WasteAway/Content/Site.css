@@ -51,13 +51,23 @@ span.field-validation-error {
         background-color: rgba(205, 40, 39, 0.55);
     }
 
+    .navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
 .dropdown-menu {
     box-shadow: none;
     -webkit-box-shadow: none;
 }
+.dropdown-menu > li > a {
+    color: #fff;
+}
+
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
     border-top-color: #fff;
     border-bottom-color: #fff;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
 }
 .navbar-brand {
     font-weight: 700;
