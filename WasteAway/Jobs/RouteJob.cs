@@ -39,6 +39,7 @@ namespace WasteAway.Jobs
                 user.LeaveDateId = null;
                 user.ReturnDateId = null;
             }
+            _context.SaveChanges();
         }
         private List<ApplicationUser> CreatePickupList()
         {
