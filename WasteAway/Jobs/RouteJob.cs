@@ -49,29 +49,40 @@ namespace WasteAway.Jobs
             ResetReturnDate(date);
 
             var results = _context.Users
-                .Where(a => a.AlternatePickupWeekday.Name == currentDay)
-                .Where(a => a.LeaveDateId != null)
+                .Where(a => a.AlternatePickupWeekdayId != null)
                 .ToList();
 
             foreach (var user in results)
             {
                 if (date >= LeaveOfAbsence(user.LeaveDateId)) continue;
+                if (currentDay != CheckPickupDay(user.AlternatePickupWeekdayId)) continue;
                 pickups.Add(user);
                 user.AlternatePickupWeekdayId = null;
             }
 
             results = _context.Users
-                .Where(a => a.PickupWeekday.Name == currentDay)
                 .Where(a => a.AlternatePickupWeekdayId == null)
                 .ToList();
 
             foreach (var user in results)
             {
-                if (date > LeaveOfAbsence(user.LeaveDateId)) continue;
+                if (date >= LeaveOfAbsence(user.LeaveDateId)) continue;
+                if (currentDay != CheckPickupDay(user.PickupWeekdayId)) continue;
                 pickups.Add(user);
             }
 
+            _context.SaveChanges();
+
             return pickups;
+        }
+
+        private string CheckPickupDay(int? userId)
+        {
+            var weekday = _context.Weekdays
+                .Where(a => a.Id == userId)
+                .Select(a => a.Name)
+                .Single();
+            return weekday;
         }
 
         private DateTime LeaveOfAbsence(int? dateId)
