@@ -284,6 +284,10 @@
     <Compile Include="Migrations\201612010513352_AddRoleToApplicationUser.Designer.cs">
       <DependentUpon>201612010513352_AddRoleToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612010537347_RemoveRoleToApplicationUser.cs" />
+    <Compile Include="Migrations\201612010537347_RemoveRoleToApplicationUser.Designer.cs">
+      <DependentUpon>201612010537347_RemoveRoleToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -474,6 +478,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612010513352_AddRoleToApplicationUser.resx">
       <DependentUpon>201612010513352_AddRoleToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612010537347_RemoveRoleToApplicationUser.resx">
+      <DependentUpon>201612010537347_RemoveRoleToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -145,8 +145,10 @@ namespace WasteAway.Controllers
                 Cities = _context.Cities.ToList(),
                 States = _context.States.ToList(),
                 Zipcodes = _context.Zipcodes.ToList(),
-                Weekdays = _context.Weekdays.ToList()
+                Weekdays = _context.Weekdays.ToList(),
             };
+            ViewBag.Name = new SelectList(_context.Roles.Where(u => !u.Name.Contains("Admin"))
+                                .ToList(), "Name", "Name");
 
             return View(model);
         }
@@ -174,7 +176,7 @@ namespace WasteAway.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     PickupAddressId = addressId,
-                    PickupWeekdayId = model.WeekdayId
+                    PickupWeekdayId = model.WeekdayId,
                 };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
