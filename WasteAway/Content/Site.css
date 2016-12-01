@@ -41,32 +41,16 @@ span.field-validation-error {
 .navbar-inverse .navbar-brand {
     color: #fff;
 }
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-    background-color: #cd2827;
-    background-color: rgba(205, 40, 39, 0.55);
-}
 
-    .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-        background-color: #cd2827;
-        background-color: rgba(205, 40, 39, 0.55);
-    }
 
-    .navbar-inverse .navbar-toggle .icon-bar {
-    background-color: #fff;
-}
 .dropdown-menu {
     box-shadow: none;
     -webkit-box-shadow: none;
-}
-.dropdown-menu > li > a {
-    color: #fff;
+    background-color: #ff4342;
+    border: none;
 }
 
-.navbar-inverse .navbar-nav > .dropdown > a .caret {
-    border-top-color: #fff;
-    border-bottom-color: #fff;
-}
-.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+.dropdown-menu > li > a {
     color: #fff;
 }
 .navbar-brand {
