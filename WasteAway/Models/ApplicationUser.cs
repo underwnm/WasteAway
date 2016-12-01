@@ -37,6 +37,8 @@ namespace WasteAway.Models
         public int? TruckId { get; set; }
         public Truck Truck { get; set; }
 
+        public int RoleId { get; set; }
+
         public ApplicationUser()
         {
             Balance = 0;
