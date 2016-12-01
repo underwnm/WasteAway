@@ -16,6 +16,7 @@ namespace WasteAway.Models
         public DbSet<Date> Dates { get; set; }
         public DbSet<Pickup> Pickups { get; set; }
         public DbSet<Truck> Trucks { get; set; }
+        public DbSet<Role> Roles { get; set; }
         
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

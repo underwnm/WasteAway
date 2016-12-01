@@ -276,6 +276,10 @@
     <Compile Include="Migrations\201611291745173_PopulateTrucksTable.Designer.cs">
       <DependentUpon>201611291745173_PopulateTrucksTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612010508001_CreateRolesTable.cs" />
+    <Compile Include="Migrations\201612010508001_CreateRolesTable.Designer.cs">
+      <DependentUpon>201612010508001_CreateRolesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -285,6 +289,7 @@
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Month.cs" />
     <Compile Include="Models\Pickup.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Truck.cs" />
     <Compile Include="Models\Weekday.cs" />
@@ -460,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611291745173_PopulateTrucksTable.resx">
       <DependentUpon>201611291745173_PopulateTrucksTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612010508001_CreateRolesTable.resx">
+      <DependentUpon>201612010508001_CreateRolesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
