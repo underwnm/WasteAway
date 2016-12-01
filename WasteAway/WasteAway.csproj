@@ -386,14 +386,12 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Manage\AlternatePickupWeekday.cshtml" />
-    <Content Include="Views\Route\GetRoute.cshtml" />
     <None Include="Views\Manage\ChangeAddress.cshtml" />
     <None Include="Views\Manage\ChangePickupWeekday.cshtml" />
     <Content Include="Views\Manage\SetVacationLeaveDate.cshtml" />
     <Content Include="Views\Manage\Route.cshtml" />
     <None Include="Views\Manage\SetVacationReturnDate.cshtml" />
     <Content Include="Views\Manage\ShowBillAmount.cshtml" />
-    <Content Include="Views\Route\GoogleRoute.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

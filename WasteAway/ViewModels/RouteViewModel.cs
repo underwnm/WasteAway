@@ -79,8 +79,8 @@ namespace WasteAway.ViewModels
             SetWaypoints();
             var waypoints = AddAddressToRoute();
             const string key = "key=AIzaSyDgaGKD2x4WZF367-tX6vUmF06vUXT3t4A";
-            var link = "https://www.google.com/maps/embed/v1/directions?" + key + waypoints;
-            return link;
+            
+            return "https://www.google.com/maps/embed/v1/directions?" + key + waypoints; ;
         }
 
         private string AddAddressToRoute()
