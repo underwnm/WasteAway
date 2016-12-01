@@ -98,8 +98,12 @@ namespace WasteAway.ViewModels
                 waypoints += AddressesForPickup[i];
 
             }
+            if (waypoints != "")
+            {
+                waypoints = "&waypoints=" + waypoints;
+            }
 
-            return "&origin=" + origin + "&destination=" + destination + "&waypoints=" + waypoints;
+            return "&origin=" + origin + "&destination=" + destination + waypoints;
         }
     }
 }
